@@ -210,8 +210,17 @@ Use the getRandomFlavors function and new arrays below to do the following:
 */
 
 
-function getRandomFlavors(/*code here*/){
-    /*code here*/
+function getRandomFlavors(arr, arr2, arr3, arr4){
+    let randomFlavors = [];                     // create empty array to push too
+
+    let join1 = arr.concat(arr2);               // join all 4 arrays into one using concat method
+    let join2 = join1.concat(arr3);
+    let concatArr = join2.concat(arr4);
+
+    while (randomFlavors.length < 31){         // while loop that picks a random item from concatArr and pushes to randomFlavors Array, loop will continue untill lenght of array is 31
+        randomFlavors.push(concatArr[Math.floor(Math.random()*concatArr.length)])
+    }
+    return randomFlavors;                       // return the randomFlavors array :)
 }
 
 // NEW DATA ARRAYS FOR STRETCH 2 ⬇️
