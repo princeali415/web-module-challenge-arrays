@@ -188,8 +188,12 @@ Use the getAverageWordLength function below to do the following:
     For example: getAverageWordLength(originalFlavors) should return a number between 0 and 3.     
 */
 
-function getAverageWordLength(/*code here*/){
-    /*code here*/
+function getAverageWordLength(arr){
+    let lengthArr=[];                               // create empty array to push too
+    for (let i = 0; i < arr.length; i++){           // initialize for loop
+        lengthArr.push(arr[i].split(' ').length);   // for every flavor split by the space and find the length of that array (split creates a new array),
+    }                                               // then push that into lengthArr Array we created.
+    return (lengthArr.reduce((a,b)=>a+b))/arr.length // use reduce to sum all numbers in lengthArr and then divide it by the # of entries (calculation for avg)
 }
 
 
