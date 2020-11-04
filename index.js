@@ -45,9 +45,9 @@ Use the copy function below to do the following:
     2. Return a copy of the received array  
 */
 
-function copy(/*your code here*/){
-    /*your code here*/
-}    
+function copy(arr){
+    return arr.slice();      // .slice returns new array, with no paramater it returns a copy
+};    
 
 
 
@@ -64,8 +64,12 @@ For Example: is31Flavors(originalFlavors) will return true if your code is worki
 */
 
 
-function is31Flavors(/*your code here*/){
-   /*your code here*/
+function is31Flavors(arr){
+   if (arr.length === 31){
+       return true;
+   } else {
+       return false;
+   }
 }
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -81,8 +85,9 @@ Use the addFlavor function below to do the following:
 */
 
 
-function addFlavor(/*your code here*/){
-   /*your code here*/
+function addFlavor(arr, str){
+   arr.unshift(str);
+   return arr;
 }
 
 
@@ -97,8 +102,9 @@ Use the removeLastFlavor function below to do the following:
     For example: running removeLastFlavor(originalFlavors) would return ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla"]
 */
 
-function removeLastFlavor(/*your code here*/){
-   /*your code here*/
+function removeLastFlavor(arr){
+   arr.pop();
+   return arr;
 }
 
 
@@ -113,8 +119,8 @@ Use the getFlavorByIndex function below to do the following:
     For example: running getFlavorByIndex(originalFlavors, 2) would return "Black Walnut", assuming Rainbow Sherbert has been added successfully
 */
 
-function getFlavorByIndex(/*your code here*/){
-    /*your code here*/
+function getFlavorByIndex(arr, idx){
+    return arr[idx];
 }
 
 
@@ -132,8 +138,10 @@ Use the removeFlavorByName function below to do the following:
     HINT: You can use .splice() for this
 */
 
-function removeFlavorByName(/*your code here*/){
-    /*your code here*/
+function removeFlavorByName(arr, str){
+    let idx = arr.indexOf(str);
+    arr.splice(idx, 1);
+    return arr;
 }
 
 
@@ -157,8 +165,14 @@ Use the filterByWord function below to do the following:
     DO NOT USE ADVANCED ARRAY METHODS (i.e. .filter) to solve this problem. 
 */
 
-function filterByWord(/*your code here*/){
-    /*your code here*/
+function filterByWord(arr, str){
+    let filteredArray = []                      // create new arr to push filtered items too
+    for (let i = 0; i < arr.length; i++){       // intialize for loop
+        if (arr[i].includes(str)){              // if word in array includes str then =>
+            filteredArray.push(arr[i])          // push it to the empty filtered array 
+        }
+    };
+    return filteredArray;
 }
 
 
@@ -174,8 +188,12 @@ Use the getAverageWordLength function below to do the following:
     For example: getAverageWordLength(originalFlavors) should return a number between 0 and 3.     
 */
 
-function getAverageWordLength(/*code here*/){
-    /*code here*/
+function getAverageWordLength(arr){
+    let lengthArr=[];                               // create empty array to push too
+    for (let i = 0; i < arr.length; i++){           // initialize for loop
+        lengthArr.push(arr[i].split(' ').length);   // for every flavor split by the space and find the length of that array (split creates a new array),
+    }                                               // then push that into lengthArr Array we created.
+    return (lengthArr.reduce((a,b)=>a+b))/arr.length // use reduce to sum all numbers in lengthArr and then divide it by the # of entries (calculation for avg)
 }
 
 
@@ -192,8 +210,17 @@ Use the getRandomFlavors function and new arrays below to do the following:
 */
 
 
-function getRandomFlavors(/*code here*/){
-    /*code here*/
+function getRandomFlavors(arr, arr2, arr3, arr4){
+    let randomFlavors = [];                     // create empty array to push too
+
+    let join1 = arr.concat(arr2);               // join all 4 arrays into one using concat method
+    let join2 = join1.concat(arr3);
+    let concatArr = join2.concat(arr4);
+
+    while (randomFlavors.length < 31){         // while loop that picks a random item from concatArr and pushes to randomFlavors Array, loop will continue untill lenght of array is 31
+        randomFlavors.push(concatArr[Math.floor(Math.random()*concatArr.length)])
+    }
+    return randomFlavors;                       // return the randomFlavors array :)
 }
 
 // NEW DATA ARRAYS FOR STRETCH 2 ⬇️
