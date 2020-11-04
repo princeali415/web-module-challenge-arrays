@@ -165,8 +165,14 @@ Use the filterByWord function below to do the following:
     DO NOT USE ADVANCED ARRAY METHODS (i.e. .filter) to solve this problem. 
 */
 
-function filterByWord(/*your code here*/){
-    /*your code here*/
+function filterByWord(arr, str){
+    let filteredArray = []                      // create new arr to push filtered items too
+    for (let i = 0; i < arr.length; i++){       // intialize for loop
+        if (arr[i].includes(str)){              // if word in array includes str then =>
+            filteredArray.push(arr[i])          // push it to the empty filtered array 
+        }
+    };
+    return filteredArray;
 }
 
 
