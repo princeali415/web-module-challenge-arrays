@@ -209,7 +209,6 @@ Use the getRandomFlavors function and new arrays below to do the following:
     For example: getRandomFlavors(originalFlavors, newFlavors, seasonalFlavors, regionalFlavors) might return ["Strawberry Cheesecake", "Eggnog,"..."Chocolate"].
 */
 
-
 function getRandomFlavors(arr, arr2, arr3, arr4){
     let randomFlavors = [];                     // create empty array to push too
 
